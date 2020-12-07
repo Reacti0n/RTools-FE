@@ -1,0 +1,36 @@
+{
+  "name": "rtools",
+  "version": "1.0.0",
+  "description": "前端工具库 for Reacti0n",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "cp package.json README.md dist",
+    "build": "rollup -c && npm run copy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reacti0n/RTools-FE.git"
+  },
+  "keywords": [
+    "rtools",
+    "quick-dev"
+  ],
+  "author": "Reacti0n",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reacti0n/RTools-FE/issues"
+  },
+  "browser": "dist/index.ts",
+  "homepage": "https://github.com/Reacti0n/RTools-FE#readme",
+  "devDependencies": {
+    "commander": "^6.2.0",
+    "rollup": "^2.34.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "shelljs": "^0.8.4",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  }
+}
