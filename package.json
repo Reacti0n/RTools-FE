@@ -1,11 +1,11 @@
 {
-  "name": "rtools",
+  "name": "@reacti0n/rtools",
   "version": "1.0.0",
   "description": "前端工具库 for Reacti0n",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "cp package.json README.md dist",
+    "copy": "copy .\\package.json .\\dist && copy .\\README.md .\\dist",
     "build": "rollup -c && npm run copy"
   },
   "repository": {

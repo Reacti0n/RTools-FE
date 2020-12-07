@@ -8,6 +8,8 @@ export default {
   output: { // 打包出口
 	file: pkg.browser, // 最终打包出来的文件路径和文件名，这里是在package.json的browser: 'dist/index.js'字段中配置的
     format: 'umd', // umd是兼容amd/cjs/iife的通用打包格式，适合浏览器
+    name: 'bundle',
+    sourcemap: false
   },
   plugins: [ // 打包插件
     resolve(), // 查找和打包node_modules中的第三方模块
