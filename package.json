@@ -1,6 +1,6 @@
 {
   "name": "@reacti0n/rtools",
-  "version": "1.0.0",
+  "version": "0.0.4",
   "description": "前端工具库 for Reacti0n",
   "main": "index.js",
   "scripts": {

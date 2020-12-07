@@ -1,19 +1,20 @@
 import is from "./is"
-import isColor from './is-color'
+import isHexColor from './is-color'
 import isValidMailPhone from "./is-valid-mail-phone"
 import isFunction from './is-function'
 import arrayUnique from "./array-unique"
 import arrayHas from "./array-has"
 import eventDoubleClick from "./event-double-click"
-import debounce from './debounce'
+import {debounce, throttle} from './throttle-debounce'
 
 export {
-    isColor,
-    debounce,
     is,
+    isHexColor,
     isFunction,
-    arrayUnique,
     isValidMailPhone,
+    debounce,
+    throttle,
     arrayHas,
+    arrayUnique,
     eventDoubleClick
 }
