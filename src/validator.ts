@@ -1,63 +1,46 @@
+/*
+ * @2020 环物（上海）网络技术有限公司保留一切权利。
+ * @Author: 陈鹏宇
+ * @Review: Do not edit
+ * @Tester: Do not edit
+ * @Date: 2020-12-08 20:48:11
+ * @LastAuthor: 陈鹏宇
+ * @LastTime: 2020-12-08 21:39:13
+ * @Description: 验证器
+ */
 
 /**
- * 验证器
+ * 验证器类
  */
-interface iValidator {
-    target: Object
-    getRules(): Set<IValidatorRule>
-    setRules(rule: IValidatorRule): void
-    validate(): Boolean
-}
-
-/**
- * 验证器验证异常
- */
-interface IValidatorException {
-    msg: String,
-}
-
-/**
- * 验证器规则
- */
-interface IValidatorRule {
-    name: String,
-    rule: ValidatorRuleEnum
-}
-
-enum ValidatorRuleEnum {
-    eq = 0,
-    gt,
-    lt,
-    isStr,
-    isNumber,
-    isEven,
-    isOdd,
-}
-
 class Validator implements iValidator {
-    private rules: Set<IValidatorRule>;
+    private rules: Map<String, IValidatorRule>;
     target: Object;
 
     constructor(target: Object) {
-        this.rules = new Set<IValidatorRule>()
+        this.rules = new Map<String, IValidatorRule>()
         this.target = target
     }
 
     validate(): Boolean {
-        for (const key in this.target) {
-            if (Object.prototype.hasOwnProperty.call(this.target, key)) {
-                // 校验
-                this.rules[key].validate()
-            }
+        let isValidate: Boolean = false
+        const hasKey: (key: String) => Boolean = (key: String) => {
+            return Object.prototype.hasOwnProperty.call(this.target, key as string)
         }
+        this.rules.forEach((rule, key) => {
+            if (hasKey(key)) {
+                rule.validate(this.target.[key])
+            }
+        });
+        return isValidate
     }
 
-    getRules(): Set<IValidatorRule> {
+    getRules(): Map<String, IValidatorRule> {
         return this.rules
     }
 
-    setRules(rule: IValidatorRule) {
-        this.rules.add(rule)
+    setRules(name: String, rule: IValidatorRule) {
+        rule.name = name
+        this.rules.set(name, rule)
     }
 }
 
